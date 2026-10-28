@@ -1,0 +1,18 @@
+-- PROGRAMMERS #164673 · 조건에 부합하는 중고거래 댓글 조회하기
+-- https://school.programmers.co.kr/learn/courses/30/lessons/164673
+-- Solved At: 2026-08-07 13:51:53 KST
+-- Language: MySQL
+
+SELECT
+    B.TITLE,
+    B.BOARD_ID,
+    R.REPLY_ID,
+    R.WRITER_ID,
+    R.CONTENTS,
+    R.CREATED_DATE
+FROM USED_GOODS_BOARD B
+JOIN USED_GOODS_REPLY R
+    ON B.BOARD_ID = R.BOARD_ID
+WHERE B.CREATED_DATE >= '2022-10-01'
+    AND B.CREATED_DATE < '2022-11-01'
+ORDER BY R.CREATED_DATE, B.TITLE
