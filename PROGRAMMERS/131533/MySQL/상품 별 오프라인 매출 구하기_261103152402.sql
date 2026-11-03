@@ -1,0 +1,13 @@
+-- PROGRAMMERS #131533 · 상품 별 오프라인 매출 구하기
+-- https://school.programmers.co.kr/learn/courses/30/lessons/131533
+-- Solved At: 2026-11-03 15:24:02 KST
+-- Language: MySQL
+
+SELECT
+    P.PRODUCT_CODE,
+    P.PRICE*SUM(S.SALES_AMOUNT) SALES
+FROM OFFLINE_SALE S
+JOIN PRODUCT P
+    ON S.PRODUCT_ID=P.PRODUCT_ID
+GROUP BY S.PRODUCT_ID
+ORDER BY SALES DESC, P.PRODUCT_CODE
