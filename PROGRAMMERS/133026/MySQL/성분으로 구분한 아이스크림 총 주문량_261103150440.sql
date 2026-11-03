@@ -1,0 +1,13 @@
+-- PROGRAMMERS #133026 · 성분으로 구분한 아이스크림 총 주문량
+-- https://school.programmers.co.kr/learn/courses/30/lessons/133026
+-- Solved At: 2026-11-03 15:04:40 KST
+-- Language: MySQL
+
+SELECT
+    I.INGREDIENT_TYPE,
+    SUM(TOTAL_ORDER) TOTAL_ORDER
+FROM FIRST_HALF F
+LEFT JOIN ICECREAM_INFO I
+    ON F.FLAVOR=I.FLAVOR
+GROUP BY I.INGREDIENT_TYPE
+ORDER BY TOTAL_ORDER
