@@ -1,0 +1,13 @@
+-- PROGRAMMERS #273710 · ROOT 아이템 구하기
+-- https://school.programmers.co.kr/learn/courses/30/lessons/273710
+-- Solved At: 2026-11-03 14:36:49 KST
+-- Language: MySQL
+
+SELECT ITEM_ID, ITEM_NAME
+FROM ITEM_INFO
+WHERE ITEM_ID IN (
+    SELECT ITEM_ID
+    FROM ITEM_TREE
+    WHERE PARENT_ITEM_ID IS NULL
+)
+ORDER BY ITEM_ID
