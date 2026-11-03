@@ -1,0 +1,10 @@
+-- PROGRAMMERS #293257 · 물고기 종류 별 잡은 수 구하기
+-- https://school.programmers.co.kr/learn/courses/30/lessons/293257
+-- Solved At: 2026-11-03 13:39:55 KST
+-- Language: MySQL
+
+SELECT COUNT(*) AS FISH_COUNT, N.FISH_NAME
+FROM FISH_INFO I
+JOIN FISH_NAME_INFO N ON I.FISH_TYPE=N.FISH_TYPE
+GROUP BY I.FISH_TYPE
+ORDER BY FISH_COUNT DESC
