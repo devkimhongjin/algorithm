@@ -1,0 +1,11 @@
+-- PROGRAMMERS #59043 · 있었는데요 없었습니다
+-- https://school.programmers.co.kr/learn/courses/30/lessons/59043
+-- Solved At: 2026-11-03 10:34:18 KST
+-- Language: MySQL
+
+SELECT I.ANIMAL_ID, I.NAME
+FROM ANIMAL_INS I
+JOIN ANIMAL_OUTS O
+    ON I.ANIMAL_ID=O.ANIMAL_ID
+WHERE I.DATETIME >= O.DATETIME
+ORDER BY I.DATETIME 
