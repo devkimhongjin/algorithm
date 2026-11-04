@@ -1,0 +1,13 @@
+-- PROGRAMMERS #157341 · 대여 기록이 존재하는 자동차 리스트 구하기
+-- https://school.programmers.co.kr/learn/courses/30/lessons/157341
+-- Solved At: 2026-11-04 15:22:43 KST
+-- Language: MySQL
+
+SELECT H.CAR_ID
+FROM CAR_RENTAL_COMPANY_RENTAL_HISTORY H
+JOIN CAR_RENTAL_COMPANY_CAR C
+    ON H.CAR_ID=C.CAR_ID
+WHERE MONTH(START_DATE)=10
+    AND CAR_TYPE='세단'
+GROUP BY H.CAR_ID
+ORDER BY H.CAR_ID DESC
