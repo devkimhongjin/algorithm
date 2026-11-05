@@ -1,0 +1,18 @@
+-- PROGRAMMERS #59045 · 보호소에서 중성화한 동물
+-- https://school.programmers.co.kr/learn/courses/30/lessons/59045
+-- Solved At: 2026-11-05 11:39:37 KST
+-- Language: MySQL
+
+SELECT 
+    I.ANIMAL_ID, 
+    I.ANIMAL_TYPE, 
+    I.NAME
+FROM ANIMAL_INS I
+INNER JOIN ANIMAL_OUTS O
+    ON I.ANIMAL_ID = O.ANIMAL_ID
+WHERE I.SEX_UPON_INTAKE LIKE '%Intact%'
+    AND (
+            O.SEX_UPON_OUTCOME LIKE '%Spayed%'
+            OR O.SEX_UPON_OUTCOME LIKE '%Neutered%'
+        )
+ORDER BY I.ANIMAL_ID;
